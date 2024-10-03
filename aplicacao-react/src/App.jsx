@@ -19,6 +19,7 @@ const App = () => {
                     <Route path="/contagem" element={<Contagem />} />
                 </Routes>
             </div>
+            <h1>oi</h1>
         </Router>
     );
 };
