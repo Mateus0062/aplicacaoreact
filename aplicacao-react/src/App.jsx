@@ -13,10 +13,10 @@ const App = () => {
                 <Menu />
                 {/* Define as rotas do aplicativo */}
                 <Routes>
-                    <Route path="/" element={<Home />} />
-                    <Route path="/cartas" element={<Cartas />} />
-                    <Route path="/fotos" element={<Fotos />} />
-                    <Route path="/contagem" element={<Contagem />} />
+                    <Route path="./" element={<Home />} />
+                    <Route path="./cartas" element={<Cartas />} />
+                    <Route path="./fotos" element={<Fotos />} />
+                    <Route path="./contagem" element={<Contagem />} />
                 </Routes>
             </div>
             <h1>oi</h1>
