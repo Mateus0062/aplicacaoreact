@@ -1,25 +1,29 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import '../Css/Fotos.css';
 
-const Fotos = () => {
+const PhotoLibrary = () => {
   const [photos, setPhotos] = useState([]);
 
+  // Recuperar fotos do localStorage quando o componente é montado
   useEffect(() => {
-      const storedPhotos = localStorage.getItem('photos');
-      if (storedPhotos) {
-          setPhotos(JSON.parse(storedPhotos));
-      }
+    const storedPhotos = localStorage.getItem('photos');
+    if (storedPhotos) {
+      setPhotos(JSON.parse(storedPhotos));
+    }
   }, []);
 
+  // Função para lidar com o upload de uma nova foto
   const handleAddPhoto = (event) => {
     const file = event.target.files[0];
     if (file) {
       const newPhoto = URL.createObjectURL(file); // cria um link temporário para exibir a imagem
-      
-      const updatedPhotos = [..photos, newPhoto];
+
+      // Atualiza o estado com a nova foto
+      const updatedPhotos = [...photos, newPhoto];
       setPhotos(updatedPhotos);
 
-      localStorage.setItem('photos', JSON.stringfy(updatedPhotos))
+      // Salva as fotos no localStorage
+      localStorage.setItem('photos', JSON.stringify(updatedPhotos));
     }
   };
 
@@ -42,4 +46,4 @@ const Fotos = () => {
   );
 };
 
-export default Fotos;
+export default PhotoLibrary;
