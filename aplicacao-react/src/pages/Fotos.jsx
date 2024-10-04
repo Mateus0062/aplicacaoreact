@@ -4,12 +4,22 @@ import '../Css/Fotos.css';
 const Fotos = () => {
   const [photos, setPhotos] = useState([]);
 
-  // Função para lidar com o upload de uma nova foto
+  useEffect(() => {
+      const storedPhotos = localStorage.getItem('photos');
+      if (storedPhotos) {
+          setPhotos(JSON.parse(storedPhotos));
+      }
+  }, []);
+
   const handleAddPhoto = (event) => {
     const file = event.target.files[0];
     if (file) {
       const newPhoto = URL.createObjectURL(file); // cria um link temporário para exibir a imagem
-      setPhotos((prevPhotos) => [...prevPhotos, newPhoto]);
+      
+      const updatedPhotos = [..photos, newPhoto];
+      setPhotos(updatedPhotos);
+
+      localStorage.setItem('photos', JSON.stringfy(updatedPhotos))
     }
   };
 
