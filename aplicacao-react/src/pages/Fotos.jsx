@@ -1,17 +1,18 @@
-import React, { useState } from 'react';
+/* eslint-disable react/prop-types */
+import { useState } from 'react';
 import '../Css/Fotos.css'
 
 const Fotos = ({ images }) => {
     const [current, setCurrent] = useState(0);
-    const length = images.length;
+    const lenght = images.lenght;
 
     const nextSlide = () => {
-        setCurrent(current === length - 1 ? 0 : current + 1);
+        setCurrent(current === lenght - 1 ? 0 : current + 1);
     };
 
     const prevSlide = () => {
-        setCurrent(current === 0 ? length - 1 : current - 1);
-    };
+        setCurrent(current === 0 ? lenght - 1 : current - 1);
+    }
 
     if (!Array.isArray(images) || images.length <= 0) {
         return null;
