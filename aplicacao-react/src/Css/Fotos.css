@@ -1,43 +1,10 @@
-.slider {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+/* Estilos básicos para a biblioteca de fotos */
+img {
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
 }
 
-.slide {
-    opacity: 0;
-    transition-duration: 1s ease;
-}
-
-    .slide.active {
-        opacity: 1;
-        transition-duration: 1s;
-        transform: scale(1.08);
+    img:hover {
+        transform: scale(1.05);
     }
-
-.image {
-    width: 500px;
-    height: 300px;
-    border-radius: 10px;
-}
-
-.left-arrow, .right-arrow {
-    cursor: pointer;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: #fff;
-    border: none;
-    padding: 10px;
-    border-radius: 50%;
-    user-select: none;
-}
-
-.left-arrow {
-    left: 25px;
-}
-
-.right-arrow {
-    right: 25px;
-}
