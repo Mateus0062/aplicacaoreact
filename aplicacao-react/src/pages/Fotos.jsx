@@ -1,17 +1,17 @@
 import React, { useState } from 'react';
 
 const Fotos = () => {
-    
-    const [photos, setPhotos] = useState([]);
+  const [photos, setPhotos] = useState([]);
 
-    const handlePhoto = (event) => {
-        const file = event.target.files[0];
-        if (file) {
-            const newPhoto = URL.createObjectURL(file);
-            setPhotos((prevPhotos) => [..prevPhotos, newPhoto]);
-        }
+  // Função para lidar com o upload de uma nova foto
+  const handleAddPhoto = (event) => {
+    const file = event.target.files[0];
+    if (file) {
+      const newPhoto = URL.createObjectURL(file); // cria um link temporário para exibir a imagem
+      setPhotos((prevPhotos) => [...prevPhotos, newPhoto]);
     }
-    
+  };
+
   return (
     <div>
       <h1>Photo Library</h1>
