@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import '../Css/Fotos';
+import '../Css/Fotos.css';
 
 const Fotos = () => {
   const [photos, setPhotos] = useState([]);
